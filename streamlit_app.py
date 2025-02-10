@@ -43,10 +43,9 @@ if 'question_stats' not in st.session_state:
     # Load history if available
     history_columns = ['Times Asked', 'Correct Answers', 'Wrong Answers']
     for col in history_columns:
-    if col not in df.columns:
-        df[col] = 0
+        if col not in df.columns:
             df[col] = 0
-        df[col] = 0
+
 
 df = df.drop_duplicates(subset=['Question'])
 history_columns = ['Times Asked', 'Correct Answers', 'Wrong Answers']
