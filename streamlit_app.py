@@ -142,9 +142,9 @@ else:
             if col in df.columns and col in history_df.columns:
                 df[col] = history_df[col].reindex(df['Question']).fillna(0).astype(int)
         try:
-        with pd.ExcelWriter(file_path, engine='openpyxl', mode='w') as writer:
-            df.to_excel(writer, index=False)
-        st.success("History successfully saved to Excel!")
+            with pd.ExcelWriter(file_path, engine='openpyxl', mode='w') as writer:
+                df.to_excel(writer, index=False)
+            st.success("History successfully saved to Excel!")
         except Exception as e:
             st.error(f"Error saving history to Excel: {e}")
         
